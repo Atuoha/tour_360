@@ -169,3 +169,6 @@ class PlaceData extends ChangeNotifier {
     ),
   ];
 }
+
+
+//https://www.airpano.com/360photo_list.php     -To get more places

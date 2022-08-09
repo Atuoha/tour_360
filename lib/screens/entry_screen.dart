@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../constants/constants.dart';
+import 'bottom_nav.dart';
 
 class EntryScreen extends StatelessWidget {
   const EntryScreen({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class EntryScreen extends StatelessWidget {
           children: [
             Image.asset('assets/images/360.png'),
             Padding(
-              padding: const EdgeInsets.only(bottom: 10.0),
+              padding: const EdgeInsets.only(bottom: 15.0),
               child: Directionality(
                 textDirection: TextDirection.rtl,
                 child: ElevatedButton.icon(
@@ -41,7 +42,7 @@ class EntryScreen extends StatelessWidget {
                       vertical: 7,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: ()=>Navigator.of(context).pushNamed(BottomNav.routeName),
                   icon: const Icon(Icons.vrpano_outlined),
                   label: const Text(
                     'Start Touring',

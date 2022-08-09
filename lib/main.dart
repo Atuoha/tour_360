@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tour_360/providers/area.dart';
+import 'package:tour_360/providers/gallery.dart';
 import 'package:tour_360/providers/place.dart';
+import 'package:tour_360/screens/bottom_nav.dart';
 import 'package:tour_360/screens/entry_screen.dart';
 
 void main() => runApp(const TourApp());
@@ -17,11 +18,16 @@ class TourApp extends StatelessWidget {
           create: (context) => PlaceData(),
         ),
         ChangeNotifierProvider(
-          create: (context) => AreaData(),
+          create: (context) => GalleryData(),
         ),
       ],
-      child: const MaterialApp(
-          debugShowCheckedModeBanner: false, home: EntryScreen(), routes: {}),
+      child:  MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const EntryScreen(),
+        routes: {
+          BottomNav.routeName: (context)=>const BottomNav()
+        },
+      ),
     );
   }
 }

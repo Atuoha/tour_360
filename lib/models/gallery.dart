@@ -1,10 +1,10 @@
-class Area {
+class Gallery {
   final int id;
   final String location;
   final String displayImgSrc;
 
 
-  Area({
+  Gallery({
     required this.id,
     required this.location,
     required this.displayImgSrc,
