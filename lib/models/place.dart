@@ -20,6 +20,5 @@ class Place extends ChangeNotifier {
 
   toggleIsFav(){
     isFavorite = !isFavorite;
-    notifyListeners();
   }
 }

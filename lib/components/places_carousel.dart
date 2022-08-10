@@ -9,29 +9,29 @@ class PlacesCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var places = Provider.of<PlaceData>(context, listen: false).getPlaces();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: CarouselSlider.builder(
-        itemCount: places.length,
-        itemBuilder: (context, index, i) => GestureDetector(
-          onTap: () => null, // Navigate to individual screen using id
-          child: SinglePlace(
-            imgSrc: places[index].displayImgSrc,
-            location: places[index].location,
-            title: places[index].title,
-            id: places[index].id,
+      child: Consumer<PlaceData>(
+        builder: (context, data, child) => CarouselSlider.builder(
+          options: CarouselOptions(
+            enlargeStrategy: CenterPageEnlargeStrategy.height,
+            autoPlay: true,
+            // enlargeCenterPage: true,
+            height: 280,
+            // padEnds: false
           ),
-        ),
-        options: CarouselOptions(
-          enlargeStrategy: CenterPageEnlargeStrategy.height,
-          autoPlay: true,
-          // enlargeCenterPage: true,
-          height: 280,
-          // padEnds: false
+          itemCount: data.getPlaces().length,
+          itemBuilder: (context, index, i) => GestureDetector(
+            onTap: () => null, // Navigate to individual screen using id
+            child: SinglePlace(
+              imgSrc: data.getPlaces()[index].displayImgSrc,
+              location: data.getPlaces()[index].location,
+              title: data.getPlaces()[index].title,
+              id: data.getPlaces()[index].id,
+            ),
+          ),
         ),
       ),
     );
   }
 }
-
