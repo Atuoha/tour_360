@@ -15,7 +15,7 @@ class FavoriteScreen extends StatelessWidget {
       padding: const EdgeInsets.all(18.0),
       child: Column(
         children: [
-          const TopHeading(title: 'Tour with us Now!'),
+          const TopHeading(title: 'Favorite Places ❤'),
           const SizedBox(height: 10),
           const SearchBox(),
           const SizedBox(height: 20),
@@ -28,7 +28,7 @@ class FavoriteScreen extends StatelessWidget {
                           Image.network('https://miro.medium.com/max/1260/1*hRJF5CNRG6tB-SkwVU5bCw.gif'),
                           const SizedBox(height: 20),
                           const Text(
-                            'Ops! It\'s empty. Add to Favorites',
+                            'Ops! It\'s empty. Add :)',
                             style: TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
@@ -46,6 +46,10 @@ class FavoriteScreen extends StatelessWidget {
         ],
       ),
     );
-    ;
+
   }
 }
+
+
+
+// https://cdn.dribbble.com/users/1162077/screenshots/5334339/heart-animation.gif   -awesome heart animated image

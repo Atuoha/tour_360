@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:tour_360/components/single_place.dart';
 import 'package:tour_360/components/single_place_grid.dart';
 import '../models/place.dart';
-import '../providers/place.dart';
 
 class PlacesGridView extends StatelessWidget {
   const PlacesGridView({
@@ -17,9 +14,9 @@ class PlacesGridView extends StatelessWidget {
     final orientation = MediaQuery.of(context).orientation;
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10),
+        crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
+        mainAxisSpacing: 10,
+      ),
       itemCount: places.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () => null, // Navigate to individual screen using id

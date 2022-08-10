@@ -8,10 +8,12 @@ class GalleryListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var galleries =
-        Provider.of<GalleryData>(context, listen: false).getPlaces();
+    var galleries = Provider.of<GalleryData>(
+      context,
+      listen: false,
+    ).getGalleries();
     return ListView.builder(
-      padding: EdgeInsets.only(top:10),
+      padding: const EdgeInsets.only(top: 10),
       itemCount: galleries.length,
       itemBuilder: (context, index) => SingleGallery(
         id: galleries[index].id,

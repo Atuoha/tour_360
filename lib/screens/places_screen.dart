@@ -24,7 +24,7 @@ class PlacesScreen extends StatelessWidget {
                   ? Center(
                       child: Column(
                         children: [
-                          Image.asset('assets/images/oops.png'),
+                          Image.asset('assets/images/opps.png'),
                           const SizedBox(height: 20),
                           const Text(
                             'Ops! It\'s empty',

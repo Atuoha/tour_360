@@ -3,16 +3,16 @@ import 'package:tour_360/models/gallery.dart';
 
 class GalleryData extends ChangeNotifier {
   findById(int id) {
-    return _areas.firstWhere(
+    return _galleries.firstWhere(
       (area) => area.id == id,
     );
   }
 
-  getPlaces() {
-    return [..._areas];
+  getGalleries() {
+    return [..._galleries];
   }
 
-  final _areas = [
+  final _galleries = [
     Gallery(
       id: 1,
       title: 'Central Park',
