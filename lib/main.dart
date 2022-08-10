@@ -22,6 +22,7 @@ class TourApp extends StatelessWidget {
         ),
       ],
       child:  MaterialApp(
+        theme: ThemeData(fontFamily: 'Montserrat'),
         debugShowCheckedModeBanner: false,
         home: const EntryScreen(),
         routes: {

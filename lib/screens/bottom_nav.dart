@@ -55,7 +55,7 @@ class _BottomNavState extends State<BottomNav> {
         title: const Text(
           '360 Tours',
           style: TextStyle(
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w400,
             fontSize: 22,
             color: accentColor,
           ),
