@@ -26,8 +26,9 @@ class PlacesCarousel extends StatelessWidget {
         options: CarouselOptions(
           enlargeStrategy: CenterPageEnlargeStrategy.height,
           autoPlay: true,
-          enlargeCenterPage: true,
-          height: 262,
+          // enlargeCenterPage: true,
+          height: 280,
+          // padEnds: false
         ),
       ),
     );

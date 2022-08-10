@@ -15,6 +15,7 @@ class GalleryListView extends StatelessWidget {
       itemCount: galleries.length,
       itemBuilder: (context, index) => SingleGallery(
         id: galleries[index].id,
+        title: galleries[index].title,
         imgSrc: galleries[index].displayImgSrc,
         location: galleries[index].location,
       ),

@@ -5,7 +5,6 @@ class PlaceData extends ChangeNotifier {
   toggleIsFav(int id) {
     var place = _places.firstWhere((place) => place.id == id);
     place.toggleIsFav();
-    notifyListeners();
   }
 
   bool isFav(int id) {

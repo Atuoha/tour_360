@@ -17,7 +17,7 @@ class Heading extends StatelessWidget {
           style: const TextStyle(
             fontSize: 22,
             color: accentColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.bold,
           ),
         ),
         GestureDetector(
@@ -26,6 +26,7 @@ class Heading extends StatelessWidget {
             'See all',
             style: TextStyle(
               color: primaryColor,
+
             ),
           ),
         )

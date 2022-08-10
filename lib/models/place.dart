@@ -1,4 +1,5 @@
-class Place {
+import 'package:flutter/material.dart';
+class Place extends ChangeNotifier {
   final int id;
   final String title;
   final String desc;
@@ -19,5 +20,6 @@ class Place {
 
   toggleIsFav(){
     isFavorite = !isFavorite;
+    notifyListeners();
   }
 }

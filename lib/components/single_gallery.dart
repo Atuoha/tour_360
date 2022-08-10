@@ -5,10 +5,12 @@ class SingleGallery extends StatelessWidget {
   const SingleGallery({
     Key? key,
     required this.id,
+    required this.title,
     required this.imgSrc,
     required this.location,
   }) : super(key: key);
   final int id;
+  final String title;
   final String imgSrc;
   final String location;
 
@@ -24,14 +26,16 @@ class SingleGallery extends StatelessWidget {
           radius: 50,
           backgroundImage: NetworkImage(imgSrc),
         ),
-        title: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            const Icon(
-              Icons.location_on_outlined,
-              color: tileColor,
-            ),
-            const SizedBox(width: 5),
+        title:
+        Text(
+          title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            color: tileColor,
+          ),
+        ),
+        subtitle:
             Text(
               location,
               maxLines: 1,
@@ -39,9 +43,8 @@ class SingleGallery extends StatelessWidget {
               style: const TextStyle(
                 color: tileColor,
               ),
-            )
-          ],
-        ),
+            ),
+
         trailing: const IconButton(
           onPressed: null,   // Navigate to individual screen using id
           icon: Icon(
