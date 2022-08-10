@@ -5,6 +5,8 @@ import 'package:tour_360/providers/place.dart';
 import 'package:tour_360/screens/bottom_nav.dart';
 import 'package:tour_360/screens/entry_screen.dart';
 
+import 'constants/constants.dart';
+
 void main() => runApp(const TourApp());
 
 class TourApp extends StatelessWidget {
@@ -21,13 +23,28 @@ class TourApp extends StatelessWidget {
           create: (context) => GalleryData(),
         ),
       ],
-      child:  MaterialApp(
-        theme: ThemeData(fontFamily: 'Montserrat'),
+      child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+          textTheme: const TextTheme(
+            bodyText1: TextStyle(
+              color: accentColor,
+            ),
+          ),
+          buttonTheme: ButtonThemeData(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 10,
+            ),
+            buttonColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        ),
         debugShowCheckedModeBanner: false,
         home: const EntryScreen(),
-        routes: {
-          BottomNav.routeName: (context)=>const BottomNav()
-        },
+        routes: {BottomNav.routeName: (context) => const BottomNav()},
       ),
     );
   }

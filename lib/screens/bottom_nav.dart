@@ -41,18 +41,18 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
       extendBody: true,
       drawer: const Drawer(),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: const FloatingActionButton(
-        backgroundColor: primaryColor,
-        onPressed: null,
-        child: Icon(Icons.vrpano),
-      ),
+      // floatingActionButtonLocation:
+      //     FloatingActionButtonLocation.miniCenterDocked,
+      // floatingActionButton: const FloatingActionButton(
+      //   backgroundColor: primaryColor,
+      //   onPressed: null,
+      //   child: Icon(Icons.vrpano),
+      // ),
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text(
+        title:  const Text(
           '360 Tours',
           style: TextStyle(
             fontWeight: FontWeight.w400,
@@ -78,7 +78,7 @@ class _BottomNavState extends State<BottomNav> {
               child: Center(
                 child: SvgPicture.asset(
                   'assets/images/menu.svg',
-                  color: accentColor,
+                  color: primaryColor,
                 ),
               ),
             ),
@@ -99,7 +99,7 @@ class _BottomNavState extends State<BottomNav> {
             child: const Center(
               child: Icon(
                 Icons.notifications_none,
-                color: accentColor,
+                color: primaryColor,
               ),
             ),
           )
