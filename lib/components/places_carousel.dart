@@ -11,11 +11,11 @@ class PlacesCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     var places = Provider.of<PlaceData>(context, listen: false).getPlaces();
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: CarouselSlider.builder(
         itemCount: places.length,
         itemBuilder: (context, index, i) => GestureDetector(
-          onTap: () => null,
+          onTap: () => null, // Navigate to individual screen using id
           child: SinglePlace(
             imgSrc: places[index].displayImgSrc,
             location: places[index].location,
@@ -34,19 +34,3 @@ class PlacesCarousel extends StatelessWidget {
   }
 }
 
-//
-// ListView.builder(
-// itemCount: places.length,
-// itemBuilder: (context, index)=>
-// GestureDetector(
-// onTap: () => null,
-// child: SinglePlace(
-// imgSrc: places[index].displayImgSrc,
-// location: places[index].location,
-// title: places[index].title,
-// id: places[index].id,
-// ),
-// ),
-//
-//
-// )]

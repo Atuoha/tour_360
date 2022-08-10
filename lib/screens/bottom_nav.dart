@@ -105,63 +105,69 @@ class _BottomNavState extends State<BottomNav> {
           )
         ],
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.red,
-          elevation: 3,
-          onTap: _setNewPage,
-          currentIndex: _currentIndex,
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: accentColor.withOpacity(0.6),
-          items: [
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 0 ? accentColor : Colors.transparent,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom:10.0),
+        child: Container(
+          decoration: BoxDecoration(border:Border.all(width:0.8, color:accentColor),
+            borderRadius: BorderRadius.circular(30),
+          ),
+
+          child: BottomNavigationBar(
+            backgroundColor: Colors.red,
+            elevation: 3,
+            onTap: _setNewPage,
+            currentIndex: _currentIndex,
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: accentColor.withOpacity(0.6),
+            items: [
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: _currentIndex == 0 ? accentColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.home),
                 ),
-                child: const Icon(Icons.home),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 1 ? accentColor : Colors.transparent,
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: _currentIndex == 1 ? accentColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.vrpano),
                 ),
-                child: const Icon(Icons.vrpano),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 2 ? accentColor : Colors.transparent,
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: _currentIndex == 2 ? accentColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.vrpano_outlined),
                 ),
-                child: const Icon(Icons.vrpano_outlined),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 3 ? accentColor : Colors.transparent,
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: _currentIndex == 3 ? accentColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.favorite),
                 ),
-                child: const Icon(Icons.favorite),
+                label: '',
               ),
-              label: '',
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       body: _pages[_currentIndex],
