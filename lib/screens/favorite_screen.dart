@@ -25,10 +25,10 @@ class FavoriteScreen extends StatelessWidget {
                   ? Center(
                       child: Column(
                         children: [
-                          Image.asset('assets/images/oops.png'),
+                          Image.network('https://miro.medium.com/max/1260/1*hRJF5CNRG6tB-SkwVU5bCw.gif'),
                           const SizedBox(height: 20),
                           const Text(
-                            'Ops! It\'s empty',
+                            'Ops! It\'s empty. Add to Favorites',
                             style: TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,

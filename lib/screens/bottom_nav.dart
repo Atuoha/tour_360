@@ -39,6 +39,7 @@ class _BottomNavState extends State<BottomNav> {
       ),
     );
     return Scaffold(
+      backgroundColor: Colors.white,
       extendBody: true,
       drawer: const Drawer(),
       // floatingActionButtonLocation:
