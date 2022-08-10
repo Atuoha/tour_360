@@ -153,8 +153,34 @@ class PlaceData extends ChangeNotifier {
     ),
 
     Place(
+      id: 9,
+      title: 'Caroline Atoll',
+      desc:
+      'Caroline atoll was the absolute highlight and the main destination of my 2019 catamaran expedition in the Pacific Ocean.This atoll lies around 837 km to the North of Tahiti, but it\'s 24 hours ahead in time. So if it is Monday on Tahiti, it is already Tuesday on Caroline — and technically, those who are on this atoll are in front of everyone else on Earth in time. This cruise had only two participants: my talented Polynesian captain, Teahui, and myself, the crazy man who in 2018 came up with the idea of contacting a Tahitian catamaran charter company, Poe Charters, to go to this remote atoll. Among the captains of this company nobody has ever been to Caroline atoll, so when this project emerged, all the captains were competing to get the job. No wonder the job was given to the best, the craziest, most daring captain. Teahui said this was a once in a lifetime opportunity for him!',
+      location: 'Kiribati',
+      displayImgSrc: 'https://www.airpano.ru/files/r_450/caroline_atoll_01.jpg',
+      otherImgs: [
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image5.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image1.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image9.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image12.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image8.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/125.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/116.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/124.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/120.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/118.jpg'
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/115.jpg'
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image3.jpg'
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/121.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image11.jpg',
+        'https://www.airpano.com/files/caroline-atoll-kiribati/images/image4.jpg'
+      ],
+    ),
+
+    Place(
       id: 10,
-      title: ' Landmarks of Yunnan province',
+      title: 'Landmarks of Yunnan province',
       desc:
       'China is the third-largest country in the world. No wonder that a huge variety of attractions are located here: cultural, natural, historical landmarks can be found on its territory. Some of them, such as the Great Wall of China, are widely known; others are less known. This AirPano virtual tour introduces you to the "Cloudy South": the mountainous and picturesque province of Yunnan.',
       location: 'China',
@@ -165,6 +191,96 @@ class PlaceData extends ChangeNotifier {
         'https://www.airpano.com/files/china-yunnan-province/images/image3.jpg',
         'https://www.airpano.com/files/china-yunnan-province/images/image4.jpg',
         'https://www.airpano.com/files/china-yunnan-province/images/image5.jpg',
+      ],
+    ),
+
+
+    Place(
+      id: 11,
+      title: 'Guatemala City',
+      desc:
+      'Guatemala is not only the largest city in the country but also in Central America. The area of almost 700 square kilometres is home to around 2.5 million people while the architecture represents a harmonious combination of antiquity and modernity.',
+      location: 'Guatemala',
+      displayImgSrc: 'https://www.airpano.ru/files/r_450/guatemala_city_01.jpg',
+      otherImgs: [
+        'https://www.airpano.com/files/guatemala-city/images/image3.jpg',
+        'https://www.airpano.com/files/guatemala-city/images/image6.jpg',
+        'https://www.airpano.com/files/guatemala-city/images/image2.jpg',
+        'https://www.airpano.com/files/guatemala-city/images/image1.jpg',
+        'https://www.airpano.com/files/guatemala-city/images/image5.jpg',
+        'https://www.airpano.com/files/guatemala-city/images/image4.jpg'
+      ],
+    ),
+
+    Place(
+      id: 12,
+      title: 'Fira, Santorini Island',
+      desc:
+      'Greece embraces more than 1000 islands, with Santorini (also named Thira) being one of the most famous of them. It is mentioned in ancient Greek myths, and moreover, it was the site for one of the most famous stories about the Rape of Europa. Around 1,500 BC, the eruption of the Santorini volcano changed the island\'s borders: the crater collapsed, forming a huge funnel (caldera). Eventually, on the slopes and the summit of this mountain at an altitude of about 400 meters, a city was born and received the same name as the entire island, Fira (sometimes also transcribed as "Thira"). The city grew and developed until a devastating earthquake struck the island in 1956 destroying more than 80% of all buildings. Afterwards, Fira was rebuilt and now what we witness is the renewed form of the settlement.',
+      location: 'Greece',
+      displayImgSrc: 'https://www.airpano.ru/files/r_450/fira_02.jpg',
+      otherImgs: [
+        'https://www.airpano.com/files/santorini-fira/images/image2.jpg',
+        'https://www.airpano.com/files/santorini-fira/images/image3.jpg',
+        'https://www.airpano.com/files/santorini-fira/images/image4.jpg',
+
+      ],
+    ),
+
+    Place(
+      id: 13,
+      title: 'Vodlozero National Park, Republic of Karelia',
+      desc:
+      'Karelia is known as the land of a thousand lakes. But that\'s a severe understatement: there are at least 60,000 of them in this region. The largest lakes of this area are Lake Ladoga and Lake Onega; along with them, there is a smaller and less famous but equally beautiful Lake Vodlozero. It is located in the southeastern part of the Republic of Karelia and covers 358 km².',
+      location: 'Russia',
+      displayImgSrc: 'https://www.airpano.ru/files/r_450/vodloozero_01.jpg',
+      otherImgs: [
+        'https://www.airpano.com/files/vodlozero/images/image2.jpg',
+        'https://www.airpano.com/files/vodlozero/images/image3.jpg',
+        'https://www.airpano.com/files/vodlozero/images/image4.jpg',
+        'https://www.airpano.com/files/vodlozero/images/image5.jpg',
+        'https://www.airpano.com/files/vodlozero/images/image6.jpg',
+        'https://www.airpano.com/files/vodlozero/images/image8.jpg'
+        'https://www.airpano.com/files/vodlozero/images/image7.jpg'
+      ],
+    ),
+
+
+    Place(
+      id: 14,
+      title: 'Tel Aviv-Yafo',
+      desc:
+      'Tel Aviv is a relatively young city with its life inextricably linked to ancient Jaffa. AirPano virtual tour is dedicated to these remarkable and full of legends places.The first recorded mention of Jaffa goes back to the ancient Egyptian chronicles dated the 15th century BC. Its shore, according to ancient Greek mythology, is reputed to have been the place where Andromeda was rescued by Perseus. It is the place whence the prophet Jonah embarked for his journey and while the Apostle Peter was in Jaffa, he had a vision here.',
+      location: 'Israel',
+      displayImgSrc: 'https://www.airpano.ru/files/r_450/tel_aviv_01.jpg',
+      otherImgs: [
+        'https://www.airpano.com/files/tel-aviv/images/image1.jpg',
+        'https://www.airpano.com/files/tel-aviv/images/image6.jpg',
+        'https://www.airpano.com/files/tel-aviv/images/image7.jpg',
+        'https://www.airpano.com/files/tel-aviv/images/image3.jpg',
+        'https://www.airpano.com/files/tel-aviv/images/image2.jpg',
+        'https://www.airpano.com/files/tel-aviv/images/image5.jpg',
+        'https://www.airpano.com/files/tel-aviv/images/image8.jpg',
+
+      ],
+    ),
+
+
+    Place(
+      id: 15,
+      title: 'Meknes',
+      desc:
+      'The history of Morocco counts four capital cities: Fez, Marrakesh, Rabat and Meknes. The latter one functioned as the imperial capital only for a short time, between 1673 and 1727, but it was the period of being Morocco\'s "Versailles". Nowadays it is a UNESCO World Heritage Site and this AirPano virtual tour is focused on this unique place.',
+      location: 'Morocco',
+      displayImgSrc: 'https://www.airpano.ru/files/r_450/meknes_01.jpg',
+      otherImgs: [
+        'https://www.airpano.com/files/meknes/images/image6.jpg',
+        'https://www.airpano.com/files/meknes/images/image1.jpg',
+        'https://www.airpano.com/files/meknes/images/image2.jpg',
+        'https://www.airpano.com/files/meknes/images/image3.jpg',
+        'https://www.airpano.com/files/meknes/images/image8.jpg',
+        'https://www.airpano.com/files/meknes/images/image4.jpg',
+
       ],
     ),
   ];
