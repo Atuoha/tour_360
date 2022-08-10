@@ -25,6 +25,14 @@ class PlaceData extends ChangeNotifier {
     return [..._places];
   }
 
+ List<Place>getFavorites(){
+    List<Place> favList = [];
+    for (var place in _places) {
+      if(place.isFavorite) favList.add(place);
+    }
+    return favList;
+  }
+
   final _places = [
     Place(
       id: 1,

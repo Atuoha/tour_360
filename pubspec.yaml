@@ -1,5 +1,5 @@
 name: tour_360
-description: A app for 360 place touring
+description: An app for 360 place touring
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
