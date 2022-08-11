@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tour_360/components/single_place.dart';
 import '../providers/place.dart';
+import '../screens/place_detail.dart';
 
 class PlacesCarousel extends StatelessWidget {
   const PlacesCarousel({Key? key}) : super(key: key);
@@ -17,12 +18,15 @@ class PlacesCarousel extends StatelessWidget {
             enlargeStrategy: CenterPageEnlargeStrategy.height,
             autoPlay: true,
             // enlargeCenterPage: true,
-            height: 280,
+            height: 290,
             // padEnds: false
           ),
           itemCount: data.getPlaces().length,
           itemBuilder: (context, index, i) => GestureDetector(
-            onTap: () => null, // Navigate to individual screen using id
+            onTap: () => Navigator.of(context).pushNamed(
+              PlaceDetails.routeName,
+              arguments: {'id': data.getPlaces()[index].id},
+            ),
             child: SinglePlace(
               imgSrc: data.getPlaces()[index].displayImgSrc,
               location: data.getPlaces()[index].location,

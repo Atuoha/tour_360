@@ -4,6 +4,7 @@ import 'package:tour_360/providers/gallery.dart';
 import 'package:tour_360/providers/place.dart';
 import 'package:tour_360/screens/bottom_nav.dart';
 import 'package:tour_360/screens/entry_screen.dart';
+import 'package:tour_360/screens/place_detail.dart';
 
 import 'constants/constants.dart';
 
@@ -44,7 +45,10 @@ class TourApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         home: const EntryScreen(),
-        routes: {BottomNav.routeName: (context) => const BottomNav()},
+        routes: {
+          BottomNav.routeName: (context) => const BottomNav(),
+          PlaceDetails.routeName: (context) => const PlaceDetails(),
+        },
       ),
     );
   }

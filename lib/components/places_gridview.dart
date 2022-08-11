@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tour_360/components/single_place_grid.dart';
 import '../models/place.dart';
+import '../screens/place_detail.dart';
 
 class PlacesGridView extends StatelessWidget {
   const PlacesGridView({
@@ -19,7 +20,10 @@ class PlacesGridView extends StatelessWidget {
       ),
       itemCount: places.length,
       itemBuilder: (context, index) => GestureDetector(
-        onTap: () => null, // Navigate to individual screen using id
+        onTap: () => Navigator.of(context).pushNamed(
+          PlaceDetails.routeName,
+          arguments: {'id': places[index].id},
+        ),
         child: SinglePlaceGrid(
           imgSrc: places[index].displayImgSrc,
           location: places[index].location,
