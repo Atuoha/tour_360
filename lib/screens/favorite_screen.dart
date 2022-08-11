@@ -19,38 +19,40 @@ class FavoriteScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const SearchBox(),
             const SizedBox(height: 20),
-            Expanded(
-              child: Consumer<PlaceData>(
-                builder: (context, data, child) => data.getFavorites().isEmpty
-                    ? Center(
-                        child: Column(
-                          children: [
-                            Image.network('https://miro.medium.com/max/1260/1*hRJF5CNRG6tB-SkwVU5bCw.gif'),
-                            const SizedBox(height: 20),
-                            const Text(
-                              'Ops! It\'s empty. Add :)',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    : PlacesGridView(
-                        places: data.getFavorites(),
+            Consumer<PlaceData>(
+              builder: (context, data, child) => data.getFavorites().isEmpty
+                  ? Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.network(
+                              'https://miro.medium.com/max/1260/1*hRJF5CNRG6tB-SkwVU5bCw.gif'),
+                          const SizedBox(height: 20),
+                          const Text(
+                            'Ops! It\'s empty. Add :)',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
                       ),
-              ),
-            )
+                    )
+                  : SingleChildScrollView(
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height / 1.3,
+                        child: PlacesGridView(
+                          places: data.getFavorites(),
+                        ),
+                      ),
+                    ),
+            ),
           ],
         ),
       ),
     );
-
   }
 }
-
-
 
 // https://cdn.dribbble.com/users/1162077/screenshots/5334339/heart-animation.gif   -awesome heart animated image

@@ -4,7 +4,7 @@ import 'package:tour_360/models/place.dart';
 class PlaceData extends ChangeNotifier {
   toggleIsFav(int id) {
     var place = _places.firstWhere((place) => place.id == id);
-    place.toggleIsFav();
+    place.toggleIsFav(id);
     notifyListeners();
   }
 
@@ -15,7 +15,7 @@ class PlaceData extends ChangeNotifier {
     return place.isFavorite;
   }
 
-  findById(int id) {
+  Place findById(int id) {
     return _places.firstWhere(
       (place) => place.id == id,
     );

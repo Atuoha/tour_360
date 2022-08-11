@@ -18,7 +18,7 @@ class Place extends ChangeNotifier {
     required this.otherImgs,
   });
 
-  toggleIsFav(){
+  toggleIsFav(int id){
     isFavorite = !isFavorite;
   }
 }

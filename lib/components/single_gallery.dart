@@ -22,7 +22,7 @@ class SingleGallery extends StatelessWidget {
         contentPadding:EdgeInsets.zero,
         // tileColor: Colors.red,
         leading: CircleAvatar(
-          backgroundColor: accentColor,
+          backgroundColor: imageBg,
           radius: 50,
           backgroundImage: NetworkImage(imgSrc),
         ),
