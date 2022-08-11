@@ -16,19 +16,21 @@ class PlaceDetails extends StatefulWidget {
 }
 
 class _PlaceDetailsState extends State<PlaceDetails> {
+  var imageIndex = 0;
+
+  updateImageIndex(int index) {
+    setState(() {
+      imageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var data =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     var id = data['id'] as int;
-    var place = Provider.of<PlaceData>(context, listen: false).findById(id);
-    var imageIndex = 0;
-
-    updateImageIndex(int index) {
-      setState(() {
-        imageIndex = index;
-      });
-    }
+    var placeData = Provider.of<PlaceData>(context);
+    var place = placeData.findById(id);
 
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
@@ -37,14 +39,12 @@ class _PlaceDetailsState extends State<PlaceDetails> {
     );
     return Scaffold(
       extendBodyBehindAppBar: true,
-      // floatingActionButtonLocation:
-      //     FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton:  FloatingActionButton.extended(
-        shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        label: Text('Start Tour'),
+      floatingActionButton: FloatingActionButton.extended(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        label: const Text('Start Tour'),
         backgroundColor: primaryColor,
         onPressed: null,
-        icon: Icon(Icons.vrpano),
+        icon: const Icon(Icons.vrpano),
       ),
       appBar: AppBar(
         elevation: 0,
@@ -74,7 +74,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
         }),
         actions: [
           GestureDetector(
-            onTap: () => place.toggleIsFav(id),
+            onTap: () => placeData.toggleIsFav(id),
             child: Container(
               margin: const EdgeInsets.only(right: 20),
               height: 30,
@@ -158,9 +158,16 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                     // style:TextStyle(fontSize:),
                     place.desc,
                     textAlign: TextAlign.justify,
-                    trimCollapsedText: 'Read more',
-                    trimExpandedText: 'Read less',
-                    colorClickableText: primaryColor,
+                    trimCollapsedText: ' Read more',
+                    trimExpandedText: ' Read less',
+                    moreStyle: const TextStyle(
+                      color: primaryColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    lessStyle: const TextStyle(
+                      color: primaryColor,
+                      fontWeight: FontWeight.w600,
+                    ),
                   )
                 ],
               ),
@@ -190,6 +197,9 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                 itemBuilder: (context, index, i) => GestureDetector(
                   onTap: () => updateImageIndex(index),
                   child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    height: 150,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: imageBg,
                       borderRadius: BorderRadius.circular(10),
