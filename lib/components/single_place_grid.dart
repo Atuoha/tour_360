@@ -37,15 +37,17 @@ class SinglePlaceGrid extends StatelessWidget {
             Stack(
               children: [
                 Container(
+                  width: double.infinity,
+                  height: 90,
                   decoration: BoxDecoration(
-                    color:imageBg,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Image.network(
-                    imgSrc,
-                    width: double.infinity,
-                    height:90,
-                    fit:BoxFit.cover,
+                    color: imageBg,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        imgSrc,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -58,7 +60,7 @@ class SinglePlaceGrid extends StatelessWidget {
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color:
-                      placeProvider.isFav(id) ? Colors.red : Colors.white,
+                          placeProvider.isFav(id) ? Colors.red : Colors.white,
                     ),
                   ),
                 )
@@ -75,7 +77,7 @@ class SinglePlaceGrid extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height:10),
+            const SizedBox(height: 10),
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [

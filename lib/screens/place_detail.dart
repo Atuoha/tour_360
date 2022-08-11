@@ -37,6 +37,15 @@ class _PlaceDetailsState extends State<PlaceDetails> {
     );
     return Scaffold(
       extendBodyBehindAppBar: true,
+      // floatingActionButtonLocation:
+      //     FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton:  FloatingActionButton.extended(
+        shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        label: Text('Start Tour'),
+        backgroundColor: primaryColor,
+        onPressed: null,
+        icon: Icon(Icons.vrpano),
+      ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -51,7 +60,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   width: 1,
-                  color: accentColor,
+                  color: primaryColor,
                 ),
               ),
               child: const Center(
@@ -74,7 +83,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   width: 1,
-                  color: accentColor,
+                  color: primaryColor,
                 ),
               ),
               child: Center(
@@ -93,7 +102,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
             Container(
               height: 400,
               decoration: BoxDecoration(
-                color:imageBg,
+                color: imageBg,
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(30),
                   bottomLeft: Radius.circular(30),
@@ -140,7 +149,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                     'Description',
                     style: TextStyle(
                       fontSize: 18,
-                      color: accentColor,
+                      color: primaryColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -163,8 +172,8 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                   BoxShadow(
                     color: primaryColor,
                     blurRadius: 5,
-                    blurStyle: BlurStyle.outer,
-                    spreadRadius: 10,
+                    blurStyle: BlurStyle.inner,
+                    spreadRadius: 15,
                   ),
                 ],
               ),
@@ -181,28 +190,28 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                 itemBuilder: (context, index, i) => GestureDetector(
                   onTap: () => updateImageIndex(index),
                   child: Container(
-                    // height: 150,
                     decoration: BoxDecoration(
+                      color: imageBg,
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                         image: NetworkImage(
                           place.otherImgs[index],
                         ),
-                        fit:BoxFit.cover,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     child: index == imageIndex
                         ? Center(
                             child: Image.asset(
                               'assets/images/check.png',
-                              width: 100,
+                              width: 50,
                             ),
                           )
                         : const Text(''),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -38,15 +38,17 @@ class SinglePlace extends StatelessWidget {
             Stack(
               children: [
                 Container(
+                  width: double.infinity,
+                  height: 210,
                   decoration: BoxDecoration(
-                    color:imageBg,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Image.network(
-                    imgSrc,
-                    width: double.infinity,
-                    height:170,
-                    fit:BoxFit.cover,
+                    color: imageBg,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        imgSrc,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -76,7 +78,7 @@ class SinglePlace extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height:10),
+            const SizedBox(height: 10),
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [

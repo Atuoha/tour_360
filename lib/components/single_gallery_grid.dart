@@ -34,15 +34,17 @@ class SingleGalleryGrid extends StatelessWidget {
             Stack(
               children: [
                 Container(
+                  width: double.infinity,
+                  height: 90,
                   decoration: BoxDecoration(
-                    color:imageBg,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Image.network(
-                    imgSrc,
-                    width: double.infinity,
-                    height: 90,
-                    fit: BoxFit.cover,
+                    color: imageBg,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        imgSrc,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -73,11 +75,8 @@ class SingleGalleryGrid extends StatelessWidget {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                const Icon(
-                  Icons.location_on_outlined,
-                  color: tileColor,
-                  size:10
-                ),
+                const Icon(Icons.location_on_outlined,
+                    color: tileColor, size: 10),
                 const SizedBox(width: 5),
                 Text(
                   location,
