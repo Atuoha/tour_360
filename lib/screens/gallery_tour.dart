@@ -5,9 +5,35 @@ import 'package:provider/provider.dart';
 import 'package:tour_360/providers/gallery.dart';
 import '../constants/constants.dart';
 
-class GalleryTour extends StatelessWidget {
+class GalleryTour extends StatefulWidget {
   static const routeName = '/gallery_tour';
+
   const GalleryTour({Key? key}) : super(key: key);
+
+  @override
+  State<GalleryTour> createState() => _GalleryTourState();
+}
+
+enum Operation { increase, decrease }
+
+class _GalleryTourState extends State<GalleryTour> {
+  double zoomValue = 1.0;
+
+  _zoomOperation(Operation operation) {
+    switch (operation) {
+      case Operation.increase:
+        setState(() {
+          zoomValue += 1.0;
+        });
+        break;
+
+      case Operation.decrease:
+        setState(() {
+          zoomValue -= 1.0;
+        });
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +58,32 @@ class GalleryTour extends StatelessWidget {
       body: Stack(
         children: [
           Panorama(
+            zoom: zoomValue,
             child: Image.network(gallery.displayImgSrc),
+          ),
+          Positioned(
+            top: 30,
+            right: 20,
+            child: Container(
+              height: 50,
+              width: 20,
+              decoration: BoxDecoration(
+                color: imageBg.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () => _zoomOperation(Operation.increase),
+                    icon: const Icon(Icons.add),
+                  ),
+                  IconButton(
+                    onPressed: () => _zoomOperation(Operation.decrease),
+                    icon: const Icon(Icons.remove),
+                  ),
+                ],
+              ),
+            ),
           ),
           Positioned(
             bottom: 10,
@@ -43,7 +94,7 @@ class GalleryTour extends StatelessWidget {
               width: 50,
               padding: const EdgeInsets.all(30),
               decoration: BoxDecoration(
-                color: imageBg,
+                color: imageBg.withOpacity(0.4),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
