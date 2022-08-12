@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:tour_360/models/gallery.dart';
 
 class GalleryData extends ChangeNotifier {
-  findById(int id) {
+  Gallery findById(int id) {
     return _galleries.firstWhere(
       (area) => area.id == id,
     );
