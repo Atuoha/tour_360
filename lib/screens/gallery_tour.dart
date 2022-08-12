@@ -17,19 +17,19 @@ class GalleryTour extends StatefulWidget {
 enum Operation { increase, decrease }
 
 class _GalleryTourState extends State<GalleryTour> {
-  double zoomValue = 1.0;
+  double zoomValue = 0.5;
 
   _zoomOperation(Operation operation) {
     switch (operation) {
       case Operation.increase:
         setState(() {
-          zoomValue += 1.0;
+          zoomValue += 0.5;
         });
         break;
 
       case Operation.decrease:
         setState(() {
-          zoomValue -= 1.0;
+          zoomValue -= 0.5;
         });
         break;
     }
@@ -41,17 +41,21 @@ class _GalleryTourState extends State<GalleryTour> {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     var id = data['id'] as int;
     var gallery = Provider.of<GalleryData>(context).findById(id);
+
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
       ),
     );
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: FloatingActionButton.extended(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
         label: const Text('Go back'),
-        backgroundColor: primaryColor,
+        backgroundColor: primaryColor.withOpacity(0.6),
         onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(Icons.chevron_left),
       ),
@@ -62,45 +66,61 @@ class _GalleryTourState extends State<GalleryTour> {
             child: Image.network(gallery.displayImgSrc),
           ),
           Positioned(
-            top: 30,
-            right: 20,
+            top: 70,
+            right: 30,
             child: Container(
-              height: 50,
-              width: 20,
+              padding: const EdgeInsets.symmetric(
+                vertical: 5,
+                horizontal: 10,
+              ),
+              height: 110,
+              width: 60,
               decoration: BoxDecoration(
-                color: imageBg.withOpacity(0.4),
+                color: primaryColor.withOpacity(0.6),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
+              child: Column(
                 children: [
                   IconButton(
                     onPressed: () => _zoomOperation(Operation.increase),
-                    icon: const Icon(Icons.add),
+                    icon: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ),
                   IconButton(
                     onPressed: () => _zoomOperation(Operation.decrease),
-                    icon: const Icon(Icons.remove),
+                    icon: const Icon(
+                      Icons.remove,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
           Positioned(
-            bottom: 10,
+            bottom: 75,
             right: 30,
             left: 30,
             child: Container(
-              height: 40,
+              height: 50,
               width: 50,
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: imageBg.withOpacity(0.4),
+                color: Colors.black.withOpacity(0.7),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Text(
-                '${gallery.title} ${gallery.location}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
+              child: Center(
+                child: Text(
+                  '${gallery.title} | ${gallery.location}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: primaryColor,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
