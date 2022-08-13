@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:tour_360/screens/place_tour.dart';
 import '../constants/constants.dart';
 import '../providers/place.dart';
 import 'package:readmore/readmore.dart';
@@ -43,7 +44,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         label: const Text('Start Tour'),
         backgroundColor: primaryColor,
-        onPressed: null,
+        onPressed: ()=> Navigator.of(context).pushNamed(PlaceTour.routeName, arguments: {'id':id}),
         icon: const Icon(Icons.vrpano),
       ),
       appBar: AppBar(

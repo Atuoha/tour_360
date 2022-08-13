@@ -82,14 +82,14 @@ class _GalleryTourState extends State<GalleryTour> {
               child: Column(
                 children: [
                   IconButton(
-                    onPressed: () => _zoomOperation(Operation.increase),
+                    onPressed: _zoomOperation(Operation.increase),
                     icon: const Icon(
                       Icons.add,
                       color: Colors.white,
                     ),
                   ),
                   IconButton(
-                    onPressed: () => _zoomOperation(Operation.decrease),
+                    onPressed:  _zoomOperation(Operation.decrease),
                     icon: const Icon(
                       Icons.remove,
                       color: Colors.white,
@@ -97,6 +97,23 @@ class _GalleryTourState extends State<GalleryTour> {
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            top: 100,
+            bottom: 100,
+            right: 65,
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/swipeLeft.gif',
+                  width: 100,
+                ),
+                Image.asset(
+                  'assets/images/swipeRight.gif',
+                  width: 100,
+                ),
+              ],
             ),
           ),
           Positioned(

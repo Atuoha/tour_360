@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:panorama/panorama.dart';
 import 'package:provider/provider.dart';
-import 'package:tour_360/providers/gallery.dart';
 import '../constants/constants.dart';
+import '../providers/place.dart';
 
 class PlaceTour extends StatefulWidget {
-  static const routeName = '/gallery_tour';
+  static const routeName = '/place_tour';
+
   const PlaceTour({Key? key}) : super(key: key);
 
   @override
@@ -17,6 +18,13 @@ enum Operation { increase, decrease }
 
 class _PlaceTourState extends State<PlaceTour> {
   double zoomValue = 0.5;
+  int imageIndex = 0;
+
+  _changeImageIndex(int index) {
+    setState(() {
+      imageIndex = index;
+    });
+  }
 
   _zoomOperation(Operation operation) {
     switch (operation) {
@@ -37,9 +45,9 @@ class _PlaceTourState extends State<PlaceTour> {
   @override
   Widget build(BuildContext context) {
     var data =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     var id = data['id'] as int;
-    var gallery = Provider.of<GalleryData>(context).findById(id);
+    var place = Provider.of<PlaceData>(context).findById(id);
 
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
@@ -62,7 +70,69 @@ class _PlaceTourState extends State<PlaceTour> {
         children: [
           Panorama(
             zoom: zoomValue,
-            child: Image.network(gallery.displayImgSrc),
+            child: Image.network(place.otherImgs[0]),
+          ),
+
+          // otherImgs
+          Positioned(
+            top: 50,
+            left: 10,
+            // height: 150,
+            width:150,
+            child: SizedBox(
+              height:MediaQuery.of(context).size.height /1,
+              width:MediaQuery.of(context).size.width /2.4,
+              child: ListView.builder(
+                itemCount: place.otherImgs.length,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap:()=> _changeImageIndex(index),
+                  child: Container(
+                    margin: const EdgeInsets.all(5),
+                    height: 80,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          place.otherImgs[index],
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      color: imageBg,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        width: 1,
+                        color: primaryColor.withOpacity(0.7),
+                      ),
+                    ),
+                    child: index == imageIndex
+                        ? Center(
+                      child: Icon(Icons.check_circle, color: primaryColor.withOpacity(0.7),)
+                    )
+                        : const Text(''),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          // hand indications for swiping
+          Positioned(
+            top: 100,
+            bottom: 100,
+            right: 20,
+            // left: 65,
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/swipeLeft.gif',
+                  width: 100,
+                ),
+                Image.asset(
+                  'assets/images/swipeRight.gif',
+                  width: 100,
+                ),
+              ],
+            ),
           ),
           Positioned(
             top: 70,
@@ -81,14 +151,14 @@ class _PlaceTourState extends State<PlaceTour> {
               child: Column(
                 children: [
                   IconButton(
-                    onPressed: () => _zoomOperation(Operation.increase),
+                    onPressed:()=> _zoomOperation(Operation.increase),
                     icon: const Icon(
                       Icons.add,
                       color: Colors.white,
                     ),
                   ),
                   IconButton(
-                    onPressed: () => _zoomOperation(Operation.decrease),
+                    onPressed:()=> _zoomOperation(Operation.decrease),
                     icon: const Icon(
                       Icons.remove,
                       color: Colors.white,
@@ -112,7 +182,7 @@ class _PlaceTourState extends State<PlaceTour> {
               ),
               child: Center(
                 child: Text(
-                  '${gallery.title} | ${gallery.location}',
+                  '${place.title} | ${place.location}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
