@@ -45,7 +45,10 @@ class _PlaceTourState extends State<PlaceTour> {
   @override
   Widget build(BuildContext context) {
     var data =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    ModalRoute
+        .of(context)!
+        .settings
+        .arguments as Map<String, dynamic>;
     var id = data['id'] as int;
     var place = Provider.of<PlaceData>(context).findById(id);
 
@@ -70,7 +73,7 @@ class _PlaceTourState extends State<PlaceTour> {
         children: [
           Panorama(
             zoom: zoomValue,
-            child: Image.network(place.otherImgs[0]),
+            child: Image.network(place.otherImgs[imageIndex]),
           ),
 
           // otherImgs
@@ -78,39 +81,47 @@ class _PlaceTourState extends State<PlaceTour> {
             top: 50,
             left: 10,
             // height: 150,
-            width:150,
+            width: 150,
             child: SizedBox(
-              height:MediaQuery.of(context).size.height /1,
-              width:MediaQuery.of(context).size.width /2.4,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 1,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width / 2.4,
               child: ListView.builder(
                 itemCount: place.otherImgs.length,
-                itemBuilder: (context, index) => GestureDetector(
-                  onTap:()=> _changeImageIndex(index),
-                  child: Container(
-                    margin: const EdgeInsets.all(5),
-                    height: 80,
-                    width: 30,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          place.otherImgs[index],
+                itemBuilder: (context, index) =>
+                    GestureDetector(
+                      onTap: () => _changeImageIndex(index),
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        height: 80,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              place.otherImgs[index],
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          color: imageBg,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            width: 1,
+                            color: primaryColor.withOpacity(0.7),
+                          ),
                         ),
-                        fit: BoxFit.cover,
-                      ),
-                      color: imageBg,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        width: 1,
-                        color: primaryColor.withOpacity(0.7),
+                        child: index == imageIndex
+                            ? Center(
+                            child: Icon(Icons.check_circle, color: primaryColor
+                                .withOpacity(0.7),)
+                        )
+                            : const Text(''),
                       ),
                     ),
-                    child: index == imageIndex
-                        ? Center(
-                      child: Icon(Icons.check_circle, color: primaryColor.withOpacity(0.7),)
-                    )
-                        : const Text(''),
-                  ),
-                ),
               ),
             ),
           ),
@@ -151,14 +162,14 @@ class _PlaceTourState extends State<PlaceTour> {
               child: Column(
                 children: [
                   IconButton(
-                    onPressed:()=> _zoomOperation(Operation.increase),
+                    onPressed: () => _zoomOperation(Operation.increase),
                     icon: const Icon(
                       Icons.add,
                       color: Colors.white,
                     ),
                   ),
                   IconButton(
-                    onPressed:()=> _zoomOperation(Operation.decrease),
+                    onPressed: () => _zoomOperation(Operation.decrease),
                     icon: const Icon(
                       Icons.remove,
                       color: Colors.white,
