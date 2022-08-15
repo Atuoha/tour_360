@@ -80,7 +80,6 @@ class _PlaceTourState extends State<PlaceTour> {
           Positioned(
             top: 50,
             left: 10,
-            // height: 150,
             width: 150,
             child: SizedBox(
               height: MediaQuery
