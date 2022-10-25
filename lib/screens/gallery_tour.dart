@@ -43,8 +43,9 @@ class _GalleryTourState extends State<GalleryTour> {
     var gallery = Provider.of<GalleryData>(context).findById(id);
 
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
+       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
+        systemNavigationBarColor: primaryLite,
       ),
     );
 

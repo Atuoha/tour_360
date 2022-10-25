@@ -36,17 +36,20 @@ class SinglePlaceGrid extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: imageBg,
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        imgSrc,
+                Hero(
+                  tag: id,
+                  child: Container(
+                    width: double.infinity,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: imageBg,
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          imgSrc,
+                        ),
+                        fit: BoxFit.cover,
                       ),
-                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

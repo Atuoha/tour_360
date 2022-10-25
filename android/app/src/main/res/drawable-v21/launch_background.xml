@@ -7,6 +7,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/360" />
+            android:src="@drawable/icon" />
     </item>
 </layer-list>
