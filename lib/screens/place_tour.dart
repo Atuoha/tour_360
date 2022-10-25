@@ -53,8 +53,9 @@ class _PlaceTourState extends State<PlaceTour> {
     var place = Provider.of<PlaceData>(context).findById(id);
 
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
+       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
+        systemNavigationBarColor: primaryLite,
       ),
     );
 

@@ -34,8 +34,9 @@ class _PlaceDetailsState extends State<PlaceDetails> {
     var place = placeData.findById(id);
 
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
+       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
+        systemNavigationBarColor: primaryLite,
       ),
     );
     return Scaffold(
