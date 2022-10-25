@@ -15,7 +15,7 @@ class PlaceData extends ChangeNotifier {
     return place.isFavorite;
   }
 
-  findById(int id) {
+  Place findById(int id) {
     return _places.firstWhere(
       (place) => place.id == id,
     );
@@ -23,6 +23,14 @@ class PlaceData extends ChangeNotifier {
 
   getPlaces() {
     return [..._places];
+  }
+
+ List<Place>getFavorites(){
+    List<Place> favList = [];
+    for (var place in _places) {
+      if(place.isFavorite) favList.add(place);
+    }
+    return favList;
   }
 
   final _places = [

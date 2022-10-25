@@ -42,7 +42,9 @@ class EntryScreen extends StatelessWidget {
                       vertical: 7,
                     ),
                   ),
-                  onPressed: ()=>Navigator.of(context).pushNamed(BottomNav.routeName),
+                  onPressed: () => Navigator.of(context).pushNamed(
+                    BottomNav.routeName,
+                  ),
                   icon: const Icon(Icons.vrpano_outlined),
                   label: const Text(
                     'Start Touring',

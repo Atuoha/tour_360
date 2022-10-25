@@ -2,111 +2,122 @@ import 'package:flutter/foundation.dart';
 import 'package:tour_360/models/gallery.dart';
 
 class GalleryData extends ChangeNotifier {
-  findById(int id) {
-    return _areas.firstWhere(
+  Gallery findById(int id) {
+    return _galleries.firstWhere(
       (area) => area.id == id,
     );
   }
 
-  getPlaces() {
-    return [..._areas];
+  getGalleries() {
+    return [..._galleries];
   }
 
-  final _areas = [
+  final _galleries = [
     Gallery(
       id: 1,
-      location: 'Central Park, New York, USA',
+      title: 'Central Park',
+      location: 'New York, USA',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_1550/36_645994.jpg',
     ),
     Gallery(
       id: 2,
-      location: 'Riomaggiore, Cinque Terre, Italy',
+      title: 'Riomaggiore',
+      location: 'Cinque Terre, Italy',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_078202.jpg',
     ),
     Gallery(
       id: 3,
-      location: 'Main Amphitheater, USA',
+      title: 'Main Amphitheater',
+      location: 'USA',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_149426.jpg',
     ),
     Gallery(
       id: 4,
-      location: 'Lotus Temple. Delhi, India',
+      title: 'Lotus Temple',
+      location: 'Delhi, India',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_390689.jpg',
     ),
     Gallery(
       id: 5,
-      location: 'Iguazu falls, Argentina-Brazil',
+      title: 'Iguazu falls',
+      location: 'Argentina-Brazil',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_150203.jpg',
     ),
     Gallery(
       id: 6,
+      title: 'Shanghai City',
       location: 'Shanghai, China',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_688878.jpg',
     ),
     Gallery(
       id: 7,
-      location: 'Trinity Lavra of St. Sergius. Sergiyev Posad, Russia',
+      title: 'Trinity Lavra of St. Sergius',
+      location: 'Sergiyev Posad, Russia',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_429603.jpg',
     ),
     Gallery(
       id: 8,
-      location: 'Buenos Aires, Argentina',
+      title: 'Buenos Aires',
+      location: 'Argentina',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_135613.jpg',
     ),
     Gallery(
       id: 9,
-      location: 'Iguazu falls, Argentina-Brazil',
+      title: 'Iguazu falls',
+      location: 'Argentina-Brazil',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_150203.jpg',
     ),
     Gallery(
       id: 10,
-      location: 'Kremlin Star',
+      title: 'Kremlin Star',
+      location: 'Unknown',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_455896.jpg',
     ),
     Gallery(
       id: 11,
-      location: 'Cathedral Square',
+      title: 'Cathedral Square',
+      location: 'Unknown',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_472878_ThebestAirPanophotos.jpg',
     ),
     Gallery(
       id: 12,
-      location: 'Shanghai ',
+      title: 'Shanghai City',
+      location: 'Shanghai',
       displayImgSrc:
           'https://www.airpano.com/photogallery/images_150_vert/36_113374_ThebestAirPanophotos.jpg',
     ),
-
     Gallery(
       id: 13,
-      location: 'Singapore ',
+      title: 'Singapore City',
+      location: 'Singapore',
       displayImgSrc:
-      'https://www.airpano.com/photogallery/images_1550/36_678320_ThebestAirPanophotos.jpg',
+          'https://www.airpano.com/photogallery/images_1550/36_678320_ThebestAirPanophotos.jpg',
     ),
-
     Gallery(
       id: 14,
-      location: 'Golden Eagles is flying above the Red Square, Moscow ',
+      title: 'Golden Eagles is flying above the Red Square',
+      location: 'Moscow ',
       displayImgSrc:
-      'https://www.airpano.com/photogallery/images_1550/36_355253_ThebestAirPanophotos.jpg',
+          'https://www.airpano.com/photogallery/images_1550/36_355253_ThebestAirPanophotos.jpg',
     ),
-
     Gallery(
       id: 15,
-      location: 'Swaminarayan Akshardham, Delhi, India ',
+      title: 'Swaminarayan Akshardham',
+      location: 'Delhi, India ',
       displayImgSrc:
-      'https://www.airpano.com/photogallery/images_1550/36_690858.jpg',
+          'https://www.airpano.com/photogallery/images_1550/36_690858.jpg',
     )
-
   ];
 }
 

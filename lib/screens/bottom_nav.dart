@@ -39,6 +39,7 @@ class _BottomNavState extends State<BottomNav> {
       ),
     );
     return Scaffold(
+      backgroundColor: Colors.white,
       extendBody: true,
       drawer: const Drawer(),
       // floatingActionButtonLocation:
@@ -52,7 +53,7 @@ class _BottomNavState extends State<BottomNav> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title:  const Text(
+        title: const Text(
           '360 Tours',
           style: TextStyle(
             fontWeight: FontWeight.w400,
@@ -78,7 +79,7 @@ class _BottomNavState extends State<BottomNav> {
               child: Center(
                 child: SvgPicture.asset(
                   'assets/images/menu.svg',
-                  color: primaryColor,
+                  color: accentColor,
                 ),
               ),
             ),
@@ -99,69 +100,82 @@ class _BottomNavState extends State<BottomNav> {
             child: const Center(
               child: Icon(
                 Icons.notifications_none,
-                color: primaryColor,
+                color: accentColor,
               ),
             ),
           )
         ],
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.red,
-          elevation: 3,
-          onTap: _setNewPage,
-          currentIndex: _currentIndex,
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: accentColor.withOpacity(0.6),
-          items: [
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 0 ? accentColor : Colors.transparent,
-                ),
-                child: const Icon(Icons.home),
-              ),
-              label: '',
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 10.0),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 0.8,
+              color: primaryColor,
             ),
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 1 ? accentColor : Colors.transparent,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: BottomNavigationBar(
+            backgroundColor: Colors.red,
+            elevation: 3,
+            onTap: _setNewPage,
+            currentIndex: _currentIndex,
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: primaryColor.withOpacity(0.4),
+            items: [
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color:
+                        _currentIndex == 0 ? primaryColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.home),
                 ),
-                child: const Icon(Icons.vrpano),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 2 ? accentColor : Colors.transparent,
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color:
+                        _currentIndex == 1 ? primaryColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.vrpano),
                 ),
-                child: const Icon(Icons.vrpano_outlined),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: _currentIndex == 3 ? accentColor : Colors.transparent,
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color:
+                        _currentIndex == 2 ? primaryColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.vrpano_outlined),
                 ),
-                child: const Icon(Icons.favorite),
+                label: '',
               ),
-              label: '',
-            ),
-          ],
+              BottomNavigationBarItem(
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color:
+                        _currentIndex == 3 ? primaryColor : Colors.transparent,
+                  ),
+                  child: const Icon(Icons.favorite),
+                ),
+                label: '',
+              ),
+            ],
+          ),
         ),
       ),
       body: _pages[_currentIndex],

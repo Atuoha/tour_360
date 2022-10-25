@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/constants.dart';
 import '../providers/place.dart';
 
@@ -22,7 +21,7 @@ class SinglePlace extends StatelessWidget {
     var placeProvider = Provider.of<PlaceData>(context, listen: false);
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      height: 260,
+      height: 250,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -32,17 +31,24 @@ class SinglePlace extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Image.network(
-                    imgSrc,
-                    width: 240,
+                Container(
+                  width: double.infinity,
+                  height: 210,
+                  decoration: BoxDecoration(
+                    color: imageBg,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        imgSrc,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -61,6 +67,7 @@ class SinglePlace extends StatelessWidget {
                 )
               ],
             ),
+            const SizedBox(height: 5),
             Text(
               title,
               maxLines: 1,
@@ -71,7 +78,7 @@ class SinglePlace extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height:10),
+            const SizedBox(height: 10),
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
