@@ -2,7 +2,7 @@
     package="com.example.tour_360">
    <application
         android:label="tour_360"
-        android:name="${applicationName}"
+        android:name="Tour 360"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
