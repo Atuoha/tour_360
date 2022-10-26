@@ -150,7 +150,7 @@ class _PlaceTourState extends State<PlaceTour> {
           Positioned(
             top: 100,
             bottom: 100,
-            right: 50,
+            right: 120,
             // left: 65,
             child: Row(
               children: [

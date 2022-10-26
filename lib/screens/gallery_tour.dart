@@ -36,6 +36,26 @@ class _GalleryTourState extends State<GalleryTour> {
   }
 
   @override
+  void initState(){
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
+  }
+
+  @override
+  dispose(){
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var data =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
@@ -103,7 +123,7 @@ class _GalleryTourState extends State<GalleryTour> {
           Positioned(
             top: 100,
             bottom: 100,
-            right: 65,
+            right: 120,
             child: Row(
               children: [
                 Image.asset(
