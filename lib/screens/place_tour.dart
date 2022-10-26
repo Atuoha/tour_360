@@ -151,7 +151,6 @@ class _PlaceTourState extends State<PlaceTour> {
             top: 100,
             bottom: 100,
             right: 50,
-            left: 50,
             // left: 65,
             child: Row(
               children: [
