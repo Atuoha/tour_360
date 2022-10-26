@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tour_360">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Tour 360"
        android:name="${applicationName}"
